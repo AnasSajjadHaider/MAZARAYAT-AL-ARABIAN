@@ -2,7 +2,6 @@
 
 import React, { useEffect, useMemo, useRef } from 'react';
 import * as THREE from 'three';
-import { useGraph } from '@react-three/fiber';
 import { useGLTF, useAnimations } from '@react-three/drei';
 import { SkeletonUtils } from 'three-stdlib';
 import { useHorseStore } from '@/store/useHorseStore';
@@ -16,7 +15,7 @@ export function Horse3D() {
   const activeHorse = useHorseStore((state) => state.activeHorse);
   const currentAnimation = useHorseStore((state) => state.currentAnimation);
 
-  // Apply smooth luxury PBR coat material to horse skinned meshes
+  // Apply immaculate, smooth luxury PBR coat material (no patchy textures or flat facets)
   useEffect(() => {
     if (!clone) return;
     const coatColor = new THREE.Color(activeHorse.coat.color);
@@ -28,18 +27,18 @@ export function Horse3D() {
         mesh.receiveShadow = true;
 
         if (mesh.geometry) {
-          // Ensure continuous smooth normals (no flat triangle facets)
+          // Compute smooth interpolated vertex normals
           mesh.geometry.computeVertexNormals();
         }
 
-        if (mesh.material) {
-          const mat = (mesh.material as THREE.MeshStandardMaterial).clone();
-          mat.color = coatColor;
-          mat.roughness = activeHorse.coat.roughness;
-          mat.metalness = activeHorse.coat.metalness;
-          mat.envMapIntensity = 1.3;
-          mesh.material = mat;
-        }
+        // Clean, pure luxury PBR coat material with silky smooth shading
+        mesh.material = new THREE.MeshStandardMaterial({
+          color: coatColor,
+          roughness: activeHorse.coat.roughness,
+          metalness: activeHorse.coat.metalness,
+          flatShading: false,
+          envMapIntensity: 1.4,
+        });
       }
     });
   }, [clone, activeHorse]);
@@ -75,7 +74,6 @@ export function Horse3D() {
     }
   }, [currentAnimation, actions]);
 
-  // Scaled down & positioned gracefully on the pedestal with ample room
   return (
     <group ref={group} dispose={null} position={[0, -1.05, 0]} scale={0.78}>
       <primitive object={clone} />

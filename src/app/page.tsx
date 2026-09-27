@@ -1,30 +1,36 @@
 'use client';
 
 import React from 'react';
-import HorseCanvasDynamic from '@/components/canvas/HorseCanvasDynamic';
 import { Navbar } from '@/components/ui/Navbar';
-import { HorseStatsCard } from '@/components/ui/HorseStatsCard';
-import { HorseSelector } from '@/components/ui/HorseSelector';
+import { SplitHeroSection } from '@/components/sections/SplitHeroSection';
+import { AnatomyExplorerSection } from '@/components/sections/AnatomyExplorerSection';
+import { DesirableSanctuarySection } from '@/components/sections/DesirableSanctuarySection';
+import { RoyalAttireSection } from '@/components/sections/RoyalAttireSection';
+import { ExperienceSection } from '@/components/sections/ExperienceSection';
 import { BookingModal } from '@/components/ui/BookingModal';
 
 export default function Home() {
   return (
-    <main className="relative w-screen h-[100dvh] overflow-hidden bg-[#070709] select-none touch-none">
-      {/* Top Luxury Navigation */}
+    <main className="relative bg-[#faf7f2] text-[#2e261f] min-h-screen overflow-x-hidden selection:bg-[#d4af37] selection:text-white">
+      {/* 1. Header Navigation */}
       <Navbar />
 
-      {/* Mobile Top Stallion Switcher (< lg only) */}
-      <HorseSelector />
+      {/* 2. Split Hero Section (Inspired by uploaded reference) */}
+      <SplitHeroSection />
 
-      {/* 3D WebGL Canvas Layer (Pure Hero Viewport) */}
-      <div className="absolute inset-0 z-0">
-        <HorseCanvasDynamic />
-      </div>
+      {/* 3. 3D Interactive Anatomy Explorer Centerpiece (With Hotspot Pins) */}
+      <AnatomyExplorerSection />
 
-      {/* Minimal Floating Bottom Dock & Specs Drawer */}
-      <HorseStatsCard />
+      {/* 4. The Most Desirable Sanctuary Bento Band (Dark Topographic) */}
+      <DesirableSanctuarySection />
 
-      {/* Cal.com Slot Booking & VIP Concierge Modal */}
+      {/* 5. Handy Guide & Royal Acquisitions (Arched Cards) */}
+      <RoyalAttireSection />
+
+      {/* 6. Experience Private Viewing & Luxury Footer */}
+      <ExperienceSection />
+
+      {/* 7. Cal.com & VIP Private Treaty Booking Modal */}
       <BookingModal />
     </main>
   );
