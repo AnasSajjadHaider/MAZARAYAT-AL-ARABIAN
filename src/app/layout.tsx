@@ -17,14 +17,14 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: 'MAZARAYAT AL ARABIAN | Royal Arabian Horse Stud Farm',
+  title: 'MAZARAYAT AL ARABIANS | Royal Arabian Horse Stud Farm',
   description:
     'Experience the world-renowned pedigree, beauty, and untamable spirit of straight Egyptian and pure Arabian champion stallions. Interactive 3D showcase & private treaty viewings.',
   keywords: [
     'Arabian Horse',
     'Royal Arabian Stud',
     'Straight Egyptian Stallion',
-    'Mazarayat Al Arabian',
+    'MAZARAYAT AL ARABIANS',
     'Horse Breeding',
     'Private Treaty',
   ],

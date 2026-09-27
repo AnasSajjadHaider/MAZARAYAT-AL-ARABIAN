@@ -48,7 +48,7 @@ export function ScrollSanctuaryFooterStage() {
         </div>
 
         <h3 className="font-serif font-bold text-2xl text-[#2e261f]">
-          Mazarayat Al Arabian Concierge
+          MAZARAYAT AL ARABIANS Concierge
         </h3>
 
         <p className="text-xs sm:text-sm text-[#6e5843] font-light mt-2 max-w-lg mx-auto leading-relaxed">
@@ -77,8 +77,8 @@ export function ScrollSanctuaryFooterStage() {
       <footer className="w-full pt-8 border-t border-amber-900/10 pointer-events-auto">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-stone-500">
           <div>
-            <span className="font-serif font-bold text-sm text-[#2e261f] block">
-              Mazarayat Al Arabian (مزارع العَرَبيَّة)
+            <span className="font-serif font-bold text-sm text-[#2e261f] block tracking-wide">
+              MAZARAYAT AL ARABIANS
             </span>
             <span className="text-[11px] text-stone-400">
               © 2026 Official WAHO Straight Egyptian Stud Farm. All rights reserved.

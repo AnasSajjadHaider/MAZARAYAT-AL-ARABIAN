@@ -60,7 +60,7 @@ export function InteractiveHorseShowcase() {
             </span>
           </div>
           <h3 className="text-2xl sm:text-3xl font-serif font-bold text-[#2e261f] mt-0.5">
-            {activeHorse.name} ({activeHorse.arabicName})
+            {activeHorse.name}
           </h3>
           <span className="text-xs text-stone-600 font-light block">
             {activeHorse.strain} • {activeHorse.title}

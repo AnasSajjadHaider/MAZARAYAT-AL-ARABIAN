@@ -9,7 +9,6 @@ export interface HorseCoat {
 export interface HorseData {
   id: string;
   name: string;
-  arabicName: string;
   title: string;
   lineage: string;
   sire: string;

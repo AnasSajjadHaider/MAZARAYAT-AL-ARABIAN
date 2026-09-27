@@ -12,7 +12,7 @@ export function ArenaVideoSection() {
     {
       id: 'reel-1',
       title: 'Night Arena Presentation',
-      arabicTitle: 'عرض الساحة الليلي',
+      subtitle: 'Stadium Spotlight',
       horse: 'Parizaad & Zulfiqar',
       duration: '4K Ultra-HD',
       thumbnail: '/images/horses/horse_white_full.jpg',
@@ -23,13 +23,13 @@ export function ArenaVideoSection() {
     {
       id: 'reel-2',
       title: 'Championship Cadence & Conformation',
-      arabicTitle: 'إيقاع البطولة والتكوين',
+      subtitle: 'Paddock Sprint',
       horse: 'Lucky & Sensation',
       duration: '4K Ultra-HD',
       thumbnail: '/images/horses/horse_golden_stand.jpg',
       src: '/videos/video2.mp4',
       description:
-        'Athletic stride analysis, trotting balance, and muscular symmetry captured across the pristine greens of Mazarayat Al Arabian.',
+        'Athletic stride analysis, trotting balance, and muscular symmetry captured across the pristine greens of MAZARAYAT AL ARABIANS.',
     },
   ];
 
@@ -70,13 +70,13 @@ export function ArenaVideoSection() {
             Championship Motion Reels
           </h2>
           <p className="mt-3 text-xs sm:text-sm text-zinc-400 font-light leading-relaxed max-w-xl mx-auto">
-            Witness the raw power, explosive gallop, and timeless Arabian grace in motion at the private arenas of Mazarayat Al Arabian.
+            Witness the raw power, explosive gallop, and timeless Arabian grace in motion at the private arenas of MAZARAYAT AL ARABIANS.
           </p>
         </div>
 
         {/* 2 Video Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {videoReels.map((reel, idx) => (
+          {videoReels.map((reel) => (
             <motion.div
               key={reel.id}
               whileHover={{ y: -6 }}
@@ -98,8 +98,8 @@ export function ArenaVideoSection() {
                   <span className="px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-[10px] font-mono text-amber-400 font-semibold border border-amber-400/30">
                     {reel.duration}
                   </span>
-                  <span className="px-3 py-1 rounded-full bg-white/10 backdrop-blur-md text-[10px] font-serif text-white">
-                    {reel.arabicTitle}
+                  <span className="px-3 py-1 rounded-full bg-white/10 backdrop-blur-md text-[10px] font-mono text-white uppercase">
+                    {reel.subtitle}
                   </span>
                 </div>
               </div>

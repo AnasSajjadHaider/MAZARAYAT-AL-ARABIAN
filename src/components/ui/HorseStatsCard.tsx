@@ -66,9 +66,6 @@ export function HorseStatsCard() {
                 <span className="font-serif font-bold text-sm tracking-wide text-white">
                   {activeHorse.name}
                 </span>
-                <span className="text-[10px] text-amber-400 font-serif hidden sm:inline">
-                  {activeHorse.arabicName}
-                </span>
               </div>
               <span className="text-[9px] uppercase tracking-wider text-zinc-400 block font-mono">
                 {activeHorse.strain.split(' ')[0]}
@@ -133,7 +130,7 @@ export function HorseStatsCard() {
                     Lineage & Telemetry
                   </span>
                   <h3 className="text-xl font-serif font-bold text-white mt-0.5">
-                    {activeHorse.name} ({activeHorse.arabicName})
+                    {activeHorse.name}
                   </h3>
                 </div>
                 <button

@@ -9,7 +9,6 @@ export function ScrollArenaVideoStage() {
     {
       id: 'reel-1',
       title: 'Night Arena Presentation',
-      arabic: 'عرض الساحة الليلي',
       horses: 'Parizaad & Zulfiqar',
       src: '/videos/video1.mp4',
       poster: '/images/horses/horse_white_full.jpg',
@@ -19,7 +18,6 @@ export function ScrollArenaVideoStage() {
     {
       id: 'reel-2',
       title: 'Championship Cadence & Conformation',
-      arabic: 'إيقاع البطولة والتكوين',
       horses: 'Lucky & Sensation',
       src: '/videos/video2.mp4',
       poster: '/images/horses/horse_golden_stand.jpg',
@@ -40,7 +38,7 @@ export function ScrollArenaVideoStage() {
           Stallions in Motion
         </h2>
         <p className="mt-2 text-xs sm:text-sm text-[#685340] font-light max-w-md leading-relaxed">
-          The true majesty of an Arabian horse reveals itself in motion. Watch the 2 official video reels captured at the Mazarayat Al Arabian estate.
+          The true majesty of an Arabian horse reveals itself in motion. Watch the 2 official video reels captured at the MAZARAYAT AL ARABIANS estate.
         </p>
       </div>
 
@@ -71,7 +69,7 @@ export function ScrollArenaVideoStage() {
             <div className="p-4">
               <div className="flex items-center justify-between text-[10px] font-mono text-amber-800 font-semibold mb-1">
                 <span>{reel.horses.toUpperCase()}</span>
-                <span>{reel.arabic}</span>
+                <span>MAZARAYAT ARCHIVE</span>
               </div>
 
               <h4 className="font-serif font-bold text-base text-[#2e261f]">

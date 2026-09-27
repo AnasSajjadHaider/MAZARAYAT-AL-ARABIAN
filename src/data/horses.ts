@@ -4,7 +4,6 @@ export const ARABIAN_HORSES: HorseData[] = [
   {
     id: 'lucky',
     name: 'Lucky',
-    arabicName: 'لاكي',
     title: 'Supreme Champion with Striking Blaze',
     lineage: 'Straight Egyptian & Kehilan Heritage',
     sire: 'Ansata Imperial',
@@ -40,7 +39,6 @@ export const ARABIAN_HORSES: HorseData[] = [
   {
     id: 'sensation',
     name: 'Sensation',
-    arabicName: 'سينسيشن',
     title: 'Golden Conformation World-Class Sire',
     lineage: 'Direct Royal Desert Foundation Line',
     sire: 'Gazal Al Shaqab',
@@ -73,9 +71,8 @@ export const ARABIAN_HORSES: HorseData[] = [
   {
     id: 'parizaad',
     name: 'Parizaad',
-    arabicName: 'پریزاد',
-    title: 'Ethereal Alabaster Sovereign of Mazarayat',
-    lineage: 'Royal Private Reserve of Mazarayat Al Arabian',
+    title: 'Ethereal Alabaster Sovereign of MAZARAYAT AL ARABIANS',
+    lineage: 'Royal Private Reserve of MAZARAYAT AL ARABIANS',
     sire: 'Morafic Ibn Desert',
     dam: 'Ansata Heziya',
     strain: 'Dahman Shahwan (The Breed of Kings)',
@@ -97,7 +94,7 @@ export const ARABIAN_HORSES: HorseData[] = [
     age: '7 Years Old',
     studFee: '$35,000 Private Treaty',
     description:
-      'Named after celestial beauty, Parizaad is an ethereal white stallion celebrated for his sculpted dished head, sweeping mane, and graceful, floating airborne gait.',
+      'Celebrated for ethereal beauty, Parizaad is an alabaster white stallion renowned for his sculpted dished head, sweeping mane, and graceful, floating airborne gait.',
     image: '/images/horses/horse_white_full.jpg',
     gallery: [
       '/images/horses/horse_white_full.jpg',
@@ -109,7 +106,6 @@ export const ARABIAN_HORSES: HorseData[] = [
   {
     id: 'zulfiqar',
     name: 'Zulfiqar',
-    arabicName: 'ذوالفقار',
     title: 'The Obsidian War Stallion & Midnight Legend',
     lineage: 'Kehilan Rodan Pure Bedouin Foundation Bloodline',
     sire: 'Kahil Al Shaqab',
@@ -133,7 +129,7 @@ export const ARABIAN_HORSES: HorseData[] = [
     age: '5 Years Old',
     studFee: '$40,000 Private Treaty',
     description:
-      'Bearing the name of the legendary sword of valor, Zulfiqar is a commanding pure black stallion with an arched crest, explosive power, and an unyielding spirit.',
+      'A commanding pure black stallion with an arched crest, explosive power, and an unyielding spirit forged in the heritage of MAZARAYAT AL ARABIANS.',
     image: '/images/horses/horse_black_night.jpg',
     gallery: ['/images/horses/horse_black_night.jpg'],
     cameraPosition: [4.8, 1.8, 5.6],

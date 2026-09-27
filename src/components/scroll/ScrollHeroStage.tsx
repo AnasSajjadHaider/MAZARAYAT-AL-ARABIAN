@@ -126,7 +126,7 @@ export function ScrollHeroStage() {
         <button
           onClick={handleDiscoverClick}
           className="group relative w-32 h-32 sm:w-36 sm:h-36 rounded-full flex items-center justify-center transition-transform duration-500 hover:scale-105 active:scale-95"
-          aria-label="Discover Mazarayat Al Arabian"
+          aria-label="Discover MAZARAYAT AL ARABIANS"
         >
           {/* Outer Thin Ring */}
           <div

@@ -70,8 +70,8 @@ export function DesirableSanctuarySection() {
               🐎
             </div>
             <div className="text-left">
-              <span className="font-serif font-bold text-base text-[#2e261f] block">
-                Mazarayat Al Arabian
+              <span className="font-serif font-bold text-base text-[#2e261f] block tracking-wide">
+                MAZARAYAT AL ARABIANS
               </span>
               <span className="text-xs text-[#7d6852] font-mono">
                 Official WAHO & Straight Egyptian Registry

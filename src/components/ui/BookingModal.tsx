@@ -241,7 +241,7 @@ export function BookingModal() {
                         Selected Stallion of Interest
                       </label>
                       <div className="px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs sm:text-sm font-medium flex items-center justify-between">
-                        <span>{activeHorse.name} ({activeHorse.arabicName})</span>
+                        <span>{activeHorse.name}</span>
                         <span className="text-[11px] text-amber-400/80">{activeHorse.strain}</span>
                       </div>
                     </div>

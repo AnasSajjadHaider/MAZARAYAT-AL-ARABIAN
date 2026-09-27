@@ -90,9 +90,9 @@ export function RoyalAttireSection() {
                   {/* Gradient Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80" />
 
-                  {/* Top Badge: Arabic Name */}
-                  <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-black/65 backdrop-blur-md text-xs font-serif text-amber-300 font-bold border border-amber-400/30">
-                    {horse.arabicName}
+                  {/* Top Badge */}
+                  <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-black/65 backdrop-blur-md text-[10px] font-mono text-amber-300 font-semibold border border-amber-400/30">
+                    MAZARAYAT
                   </div>
 
                   {/* Color Swatch Dot */}
@@ -123,11 +123,8 @@ export function RoyalAttireSection() {
                     </span>
                   </div>
 
-                  <h3 className="font-serif font-extrabold text-xl text-[#2e261f] mt-1 group-hover:text-amber-800 transition-colors flex items-center justify-between">
-                    <span>{horse.name}</span>
-                    <span className="text-sm font-normal text-stone-400 font-serif">
-                      ({horse.arabicName})
-                    </span>
+                  <h3 className="font-serif font-extrabold text-xl text-[#2e261f] mt-1 group-hover:text-amber-800 transition-colors">
+                    {horse.name}
                   </h3>
 
                   <p className="text-xs text-[#6e5843] font-light mt-1.5 line-clamp-2 leading-relaxed">

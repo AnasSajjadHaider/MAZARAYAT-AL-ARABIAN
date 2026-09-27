@@ -57,7 +57,6 @@ export function ScrollFourChampionsStage() {
                   style={{ backgroundColor: horse.coat.color }}
                 />
                 <span>{horse.name}</span>
-                <span className="text-[10px] opacity-75 font-normal">({horse.arabicName})</span>
               </button>
             );
           })}
@@ -83,8 +82,8 @@ export function ScrollFourChampionsStage() {
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-              <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-xs font-serif text-amber-300 font-bold border border-amber-400/30">
-                {activeHorse.arabicName}
+              <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-[10px] font-mono text-amber-300 font-semibold border border-amber-400/30">
+                MAZARAYAT AL ARABIANS
               </div>
               <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-xs font-mono">
                 <span className="px-2 py-0.5 rounded-md bg-white/20 backdrop-blur-md">

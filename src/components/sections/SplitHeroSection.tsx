@@ -78,7 +78,7 @@ export function SplitHeroSection() {
                 {/* Real Arabian Horse Image / Visual: Parizaad */}
                 <img
                   src="/images/horses/horse_white_full.jpg"
-                  alt="Parizaad - Mazarayat Al Arabian"
+                  alt="Parizaad - MAZARAYAT AL ARABIANS"
                   className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
                 />
               </div>
@@ -98,7 +98,7 @@ export function SplitHeroSection() {
                 <div>
                   <span className="text-xs font-semibold text-white block">Royal Heritage</span>
                   <span className="text-[10px] text-zinc-400 block font-light">
-                    Mazarayat Al Arabian Bloodlines
+                    MAZARAYAT AL ARABIANS Bloodlines
                   </span>
                 </div>
               </div>
@@ -114,7 +114,7 @@ export function SplitHeroSection() {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-2">
-                  <span className="text-[10px] font-mono text-amber-300 font-semibold">Zulfiqar (ذوالفقار)</span>
+                  <span className="text-[10px] font-mono text-amber-300 font-semibold">Zulfiqar</span>
                 </div>
               </div>
               <div className="flex-1 h-20 rounded-2xl overflow-hidden border border-white/15 relative group cursor-pointer" onClick={scrollTo3D}>
@@ -124,7 +124,7 @@ export function SplitHeroSection() {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-2">
-                  <span className="text-[10px] font-mono text-amber-300 font-semibold">Lucky (لاكي)</span>
+                  <span className="text-[10px] font-mono text-amber-300 font-semibold">Lucky</span>
                 </div>
               </div>
             </div>
@@ -194,10 +194,10 @@ export function SplitHeroSection() {
                   Featured Champion Sire
                 </span>
                 <span className="text-base font-serif font-bold text-[#2e261f] block">
-                  Sensation (سينسيشن)
+                  Sensation
                 </span>
                 <p className="text-xs text-[#7d6852] font-light leading-tight mt-0.5">
-                  Golden stallion of Mazarayat Al Arabian with pure desert conformation.
+                  Golden stallion of MAZARAYAT AL ARABIANS with pure desert conformation.
                 </p>
               </div>
             </div>

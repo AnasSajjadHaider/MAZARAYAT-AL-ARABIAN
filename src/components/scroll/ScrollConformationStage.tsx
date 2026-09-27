@@ -11,22 +11,22 @@ export function ScrollConformationStage() {
   const conformationPoints = [
     {
       title: 'Sculpted Dished Profile',
-      arabic: 'الرأس المقعر الأصيل',
+      tag: 'Head & Eye',
       desc: 'Distinctive concave profile, wide expressive liquid eyes, and flared desert nostrils.',
     },
     {
       title: 'High-Arching Mitbah Crest',
-      arabic: 'قوس العنق والمذبح',
+      tag: 'Crest & Throat',
       desc: 'Refined throatlatch and arched crest ensuring maximum respiratory volume during intense desert heat.',
     },
     {
       title: 'Short Coupled Back & Girth',
-      arabic: 'الظهر القصير والصدر الواسع',
+      tag: 'Core & Loin',
       desc: 'Compact loin with deep heart girth providing monumental lung capacity and explosive acceleration.',
     },
     {
       title: 'Natural High-Set Flag Tail',
-      arabic: 'رفع الذيل الفطري',
+      tag: 'Tail Carriage',
       desc: 'Carried aloft with aristocratic pride in every gait, the definitive hallmark of Bedouin nobility.',
     },
   ];
@@ -62,8 +62,8 @@ export function ScrollConformationStage() {
               <span className="text-xs font-serif font-bold text-[#2e261f]">
                 {point.title}
               </span>
-              <span className="text-[10px] font-serif text-amber-800 font-semibold px-2 py-0.5 rounded-full bg-amber-500/15">
-                {point.arabic}
+              <span className="text-[10px] font-mono text-amber-800 font-semibold px-2 py-0.5 rounded-full bg-amber-500/15">
+                {point.tag}
               </span>
             </div>
             <p className="text-[11px] text-[#786350] font-light mt-1 leading-relaxed">

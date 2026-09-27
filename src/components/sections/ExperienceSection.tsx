@@ -29,11 +29,11 @@ export function ExperienceSection() {
           <div className="h-72 sm:h-80 rounded-t-full rounded-b-3xl overflow-hidden shadow-lg border-2 border-white relative group">
             <img
               src="/images/horses/horse_white_head.jpg"
-              alt="Mazarayat Al Arabian Champion Head"
+              alt="MAZARAYAT AL ARABIANS Champion Head"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end justify-center p-3">
-              <span className="text-[11px] font-mono text-amber-300 font-semibold">Parizaad (پریزاد)</span>
+              <span className="text-[11px] font-mono text-amber-300 font-semibold">Parizaad</span>
             </div>
           </div>
 
@@ -61,11 +61,11 @@ export function ExperienceSection() {
           <div className="h-72 sm:h-80 rounded-t-full rounded-b-3xl overflow-hidden shadow-lg border-2 border-white relative group">
             <img
               src="/images/horses/horse_chestnut_side.jpg"
-              alt="Mazarayat Al Arabian Lucky"
+              alt="MAZARAYAT AL ARABIANS Lucky"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end justify-center p-3">
-              <span className="text-[11px] font-mono text-amber-300 font-semibold">Lucky (لاكي)</span>
+              <span className="text-[11px] font-mono text-amber-300 font-semibold">Lucky</span>
             </div>
           </div>
         </div>
@@ -81,7 +81,7 @@ export function ExperienceSection() {
               <div className="flex items-center gap-3">
                 <span className="text-2xl">🐎</span>
                 <span className="font-serif font-bold text-xl sm:text-2xl text-white tracking-wide">
-                  Stay Connected with Mazarayat
+                  Stay Connected with MAZARAYAT AL ARABIANS
                 </span>
               </div>
               <p className="text-xs text-zinc-400 font-light mt-1">
@@ -115,7 +115,7 @@ export function ExperienceSection() {
           </div>
 
           <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-zinc-500 gap-4">
-            <p>© 2026 Mazarayat Al Arabian (مزارع العَرَبيَّة). All Rights Reserved.</p>
+            <p>© 2026 MAZARAYAT AL ARABIANS. All Rights Reserved.</p>
             <div className="flex items-center gap-6 font-mono text-[11px]">
               <a href="#" className="hover:text-amber-400 transition-colors">Privacy Policy</a>
               <a href="#" className="hover:text-amber-400 transition-colors">WAHO Registration</a>
