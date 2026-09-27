@@ -6,6 +6,7 @@ import { useFrame, useThree } from '@react-three/fiber';
 import { useGLTF, useAnimations } from '@react-three/drei';
 import { SkeletonUtils } from 'three-stdlib';
 import { useHorseStore } from '@/store/useHorseStore';
+import { createHorseCustomPBRMaterial } from '@/utils/horseMaterials';
 
 interface KeyframeData {
   progress: number;
@@ -133,13 +134,7 @@ export function CapsuleScrollHorse() {
           mesh.geometry.computeVertexNormals();
         }
 
-        mesh.material = new THREE.MeshStandardMaterial({
-          color: coatColor,
-          roughness: activeHorse.coat.roughness,
-          metalness: activeHorse.coat.metalness,
-          flatShading: false,
-          envMapIntensity: 1.5,
-        });
+        mesh.material = createHorseCustomPBRMaterial(activeHorse);
       }
     });
   }, [clone, activeHorse]);

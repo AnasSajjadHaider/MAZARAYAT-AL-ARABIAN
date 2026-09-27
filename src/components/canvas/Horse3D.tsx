@@ -6,6 +6,8 @@ import { useGLTF, useAnimations } from '@react-three/drei';
 import { SkeletonUtils } from 'three-stdlib';
 import { useHorseStore } from '@/store/useHorseStore';
 
+import { createHorseCustomPBRMaterial } from '@/utils/horseMaterials';
+
 export function Horse3D() {
   const group = useRef<THREE.Group>(null);
   const { scene, animations } = useGLTF('/horse-transformed.glb');
@@ -15,10 +17,9 @@ export function Horse3D() {
   const activeHorse = useHorseStore((state) => state.activeHorse);
   const currentAnimation = useHorseStore((state) => state.currentAnimation);
 
-  // Apply immaculate, smooth luxury PBR coat material (no patchy textures or flat facets)
+  // Apply immaculate, smooth luxury PBR coat material with authentic markings
   useEffect(() => {
     if (!clone) return;
-    const coatColor = new THREE.Color(activeHorse.coat.color);
 
     clone.traverse((child) => {
       const mesh = child as THREE.SkinnedMesh;
@@ -31,14 +32,7 @@ export function Horse3D() {
           mesh.geometry.computeVertexNormals();
         }
 
-        // Clean, pure luxury PBR coat material with silky smooth shading
-        mesh.material = new THREE.MeshStandardMaterial({
-          color: coatColor,
-          roughness: activeHorse.coat.roughness,
-          metalness: activeHorse.coat.metalness,
-          flatShading: false,
-          envMapIntensity: 1.4,
-        });
+        mesh.material = createHorseCustomPBRMaterial(activeHorse);
       }
     });
   }, [clone, activeHorse]);
