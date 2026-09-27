@@ -1,0 +1,4 @@
+# Strict R3F & 3D Engineering Rules for Mazarayat Al Arabian
+Always use React Three Fiber (R3F) and @react-three/drei hooks (useGLTF, useAnimations, CameraControls).
+Never allocate new THREE objects inside useFrame loops (memory safety).
+Keep 3D canvas decoupled from 2D UI; manage shared state with Zustand.
