@@ -12,7 +12,7 @@ import { BookingModal } from '@/components/ui/BookingModal';
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen bg-gradient-to-b from-[#faf7f2] via-[#f6f1e8] to-[#f2e9dc] text-[#2e261f] overflow-x-hidden selection:bg-[#d4af37] selection:text-white">
+    <main className="relative min-h-screen bg-gradient-to-b from-[#fbf4eb] via-[#f7e6d2] to-[#edd6c0] text-[#25352e] overflow-x-hidden selection:bg-[#476357] selection:text-white">
       {/* 1. Fixed Header Navigation */}
       <Navbar />
 

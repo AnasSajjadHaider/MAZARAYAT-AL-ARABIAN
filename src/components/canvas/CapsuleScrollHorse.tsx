@@ -18,14 +18,14 @@ interface KeyframeData {
 }
 
 const KEYFRAMES: KeyframeData[] = [
-  // 0: Hero - Standing proud on right
+  // 0: Hero - Perfectly centered intersecting the giant typography (like Capsul-in-Pro)
   {
     progress: 0.0,
-    horsePos: [1.3, -0.72, 0.2],
-    horseRot: [0, -0.65, 0],
-    cameraPos: [0, 0.1, 5.4],
+    horsePos: [0.0, -0.45, 0.2],
+    horseRot: [0, -0.35, 0],
+    cameraPos: [0, 0.1, 5.2],
     cameraFov: 38,
-    timeScale: 0.65,
+    timeScale: 0.7,
   },
   // 1: Conformation - Moves to left-center, turns broadside (lateral profile)
   {
