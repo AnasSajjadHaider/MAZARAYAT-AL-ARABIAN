@@ -9,11 +9,9 @@ import {
   Shield,
   Play,
   Pause,
-  ChevronRight,
-  ChevronUp,
-  ChevronDown,
-  Camera,
+  X,
   Sliders,
+  ChevronRight,
 } from 'lucide-react';
 import { useHorseStore } from '@/store/useHorseStore';
 import { soundFx } from '@/utils/sound';
@@ -27,8 +25,8 @@ export function HorseStatsCard() {
   const setCameraPreset = useHorseStore((state) => state.setCameraPreset);
   const openBookingModal = useHorseStore((state) => state.openBookingModal);
 
-  // Mobile drawer expanded / collapsed state
-  const [isMobileExpanded, setIsMobileExpanded] = useState(false);
+  // Specifications drawer open/close
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const handleAnimationChange = (anim: AnimationState) => {
     soundFx.playClick();
@@ -40,6 +38,11 @@ export function HorseStatsCard() {
     setCameraPreset(preset);
   };
 
+  const toggleDrawer = () => {
+    soundFx.playClick();
+    setIsDrawerOpen((prev) => !prev);
+  };
+
   const handleBooking = () => {
     soundFx.playChime();
     openBookingModal();
@@ -48,314 +51,112 @@ export function HorseStatsCard() {
   return (
     <>
       {/* ========================================================================= */}
-      {/* 1. DESKTOP VIEW (Visible on md and above)                                */}
+      {/* MINIMAL BOTTOM FLOATING DOCK (Ultra-Clean, 0% Newspaper Clutter)         */}
       {/* ========================================================================= */}
-      <div className="hidden md:block fixed right-6 lg:right-10 bottom-8 z-30 w-full max-w-[380px] pointer-events-none">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeHorse.id}
-            initial={{ opacity: 0, y: 20, scale: 0.98 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -20, scale: 0.98 }}
-            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="pointer-events-auto rounded-3xl bg-black/80 backdrop-blur-2xl border border-amber-500/25 p-6 shadow-[0_20px_60px_rgba(0,0,0,0.85)] text-white relative overflow-hidden"
-          >
-            {/* Subtle gold radial ambient corner glow */}
-            <div className="absolute top-0 right-0 w-48 h-48 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
-
-            {/* Header Info */}
-            <div className="relative z-10">
-              <div className="flex items-center justify-between">
-                <span className="text-[10px] tracking-[0.25em] font-medium uppercase text-amber-400 font-serif">
-                  {activeHorse.strain}
+      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-30 w-[92%] max-w-2xl pointer-events-none">
+        <div className="pointer-events-auto rounded-full bg-black/75 backdrop-blur-2xl border border-white/10 px-4 py-2.5 sm:px-6 sm:py-3 shadow-[0_15px_40px_rgba(0,0,0,0.8)] flex items-center justify-between gap-3 text-white">
+          {/* Active Stallion Badge */}
+          <div className="flex items-center gap-2.5 shrink-0">
+            <div
+              className="w-3 h-3 rounded-full border border-white/20 shrink-0"
+              style={{ backgroundColor: activeHorse.coat.color }}
+            />
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="font-serif font-bold text-sm tracking-wide text-white">
+                  {activeHorse.name}
                 </span>
-                <span className="text-sm font-serif text-amber-300/80">
+                <span className="text-[10px] text-amber-400 font-serif hidden sm:inline">
                   {activeHorse.arabicName}
                 </span>
               </div>
-
-              <h1 className="text-2xl font-serif font-bold text-white mt-1 tracking-wide">
-                {activeHorse.name}
-              </h1>
-              <p className="text-xs text-zinc-400 font-light mt-0.5 line-clamp-1">
-                {activeHorse.title}
-              </p>
-            </div>
-
-            {/* Lineage & Key Pedigree Badge */}
-            <div className="mt-3 px-3 py-2 rounded-xl bg-white/[0.04] border border-white/[0.08] text-[11px] text-zinc-300">
-              <div className="flex items-center gap-1.5 text-amber-300 font-medium mb-0.5">
-                <Award className="w-3.5 h-3.5" />
-                <span>Royal Lineage</span>
-              </div>
-              <p className="text-zinc-400 font-light text-[10.5px] leading-relaxed">
-                {activeHorse.lineage}
-              </p>
-            </div>
-
-            {/* Animated Telemetry Stats */}
-            <div className="mt-4 space-y-2.5">
-              <div>
-                <div className="flex justify-between items-center text-xs mb-1">
-                  <span className="flex items-center gap-1.5 text-zinc-300">
-                    <Zap className="w-3.5 h-3.5 text-amber-400" />
-                    Speed & Burst
-                  </span>
-                  <span className="font-mono text-amber-300 font-semibold">{activeHorse.stats.speed}%</span>
-                </div>
-                <div className="h-1.5 w-full bg-zinc-800/90 rounded-full overflow-hidden p-0.5">
-                  <motion.div
-                    initial={{ width: 0 }}
-                    animate={{ width: `${activeHorse.stats.speed}%` }}
-                    transition={{ duration: 0.8, ease: 'easeOut' }}
-                    className="h-full bg-gradient-to-r from-amber-600 via-amber-400 to-amber-200 rounded-full shadow-[0_0_10px_rgba(212,175,55,0.5)]"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <div className="flex justify-between items-center text-xs mb-1">
-                  <span className="flex items-center gap-1.5 text-zinc-300">
-                    <Activity className="w-3.5 h-3.5 text-amber-400" />
-                    Stamina & Lung Capacity
-                  </span>
-                  <span className="font-mono text-amber-300 font-semibold">{activeHorse.stats.stamina}%</span>
-                </div>
-                <div className="h-1.5 w-full bg-zinc-800/90 rounded-full overflow-hidden p-0.5">
-                  <motion.div
-                    initial={{ width: 0 }}
-                    animate={{ width: `${activeHorse.stats.stamina}%` }}
-                    transition={{ duration: 0.8, delay: 0.1, ease: 'easeOut' }}
-                    className="h-full bg-gradient-to-r from-amber-600 via-amber-400 to-amber-200 rounded-full shadow-[0_0_10px_rgba(212,175,55,0.5)]"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <div className="flex justify-between items-center text-xs mb-1">
-                  <span className="flex items-center gap-1.5 text-zinc-300">
-                    <Award className="w-3.5 h-3.5 text-amber-400" />
-                    Bloodline Purity
-                  </span>
-                  <span className="font-mono text-amber-300 font-semibold">{activeHorse.stats.purity}%</span>
-                </div>
-                <div className="h-1.5 w-full bg-zinc-800/90 rounded-full overflow-hidden p-0.5">
-                  <motion.div
-                    initial={{ width: 0 }}
-                    animate={{ width: `${activeHorse.stats.purity}%` }}
-                    transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
-                    className="h-full bg-gradient-to-r from-amber-500 via-amber-300 to-white rounded-full shadow-[0_0_12px_rgba(212,175,55,0.6)]"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <div className="flex justify-between items-center text-xs mb-1">
-                  <span className="flex items-center gap-1.5 text-zinc-300">
-                    <Shield className="w-3.5 h-3.5 text-amber-400" />
-                    Temperament & Nobility
-                  </span>
-                  <span className="font-mono text-amber-300 font-semibold">{activeHorse.stats.temperament}%</span>
-                </div>
-                <div className="h-1.5 w-full bg-zinc-800/90 rounded-full overflow-hidden p-0.5">
-                  <motion.div
-                    initial={{ width: 0 }}
-                    animate={{ width: `${activeHorse.stats.temperament}%` }}
-                    transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
-                    className="h-full bg-gradient-to-r from-amber-600 via-amber-400 to-amber-200 rounded-full shadow-[0_0_10px_rgba(212,175,55,0.5)]"
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Action Gaits Controls: Idle | Trot | Gallop */}
-            <div className="mt-4 pt-3.5 border-t border-zinc-800/80">
-              <span className="text-[10px] tracking-widest uppercase text-zinc-400 font-medium block mb-2">
-                Motion Gaits
+              <span className="text-[9px] uppercase tracking-wider text-zinc-400 block font-mono">
+                {activeHorse.strain.split(' ')[0]}
               </span>
-              <div className="grid grid-cols-3 gap-2">
-                {(['idle', 'trot', 'gallop'] as AnimationState[]).map((action) => {
-                  const isActive = currentAnimation === action;
-                  return (
-                    <button
-                      key={action}
-                      onClick={() => handleAnimationChange(action)}
-                      className={`py-2 px-2.5 rounded-xl text-xs font-medium uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 border ${
-                        isActive
-                          ? 'bg-amber-500/20 border-amber-500 text-amber-300 shadow-[0_0_15px_rgba(212,175,55,0.3)]'
-                          : 'bg-zinc-900/60 border-zinc-800 text-zinc-400 hover:text-zinc-200 hover:border-zinc-700'
-                      }`}
-                    >
-                      {action === 'idle' ? <Pause className="w-3 h-3" /> : <Play className="w-3 h-3" />}
-                      <span>{action}</span>
-                    </button>
-                  );
-                })}
-              </div>
             </div>
+          </div>
 
-            {/* Camera View Presets */}
-            <div className="mt-3 flex items-center justify-between">
-              <span className="text-[10px] tracking-widest uppercase text-zinc-400 font-medium">
-                Camera View
-              </span>
-              <div className="flex gap-1.5">
-                {(['full', 'head', 'motion'] as CameraViewPreset[]).map((preset) => (
-                  <button
-                    key={preset}
-                    onClick={() => handleCameraChange(preset)}
-                    className={`px-2.5 py-1 rounded-lg text-[10px] uppercase font-mono tracking-wider transition-all border ${
-                      cameraPreset === preset
-                        ? 'bg-amber-400/20 border-amber-400/80 text-amber-300'
-                        : 'bg-zinc-900/40 border-zinc-800/60 text-zinc-400 hover:text-zinc-200'
-                    }`}
-                  >
-                    {preset}
-                  </button>
-                ))}
-              </div>
-            </div>
+          {/* Gaits Controller: [Idle] [Trot] [Gallop] */}
+          <div className="flex items-center gap-1 bg-zinc-900/90 rounded-full p-1 border border-zinc-800 shrink-0">
+            {(['idle', 'trot', 'gallop'] as AnimationState[]).map((action) => {
+              const isActive = currentAnimation === action;
+              return (
+                <button
+                  key={action}
+                  onClick={() => handleAnimationChange(action)}
+                  className={`px-3 py-1 rounded-full text-[11px] font-medium uppercase tracking-wider transition-all flex items-center gap-1 ${
+                    isActive
+                      ? 'bg-amber-500/25 border border-amber-400/80 text-amber-200 shadow-[0_0_10px_rgba(212,175,55,0.4)]'
+                      : 'text-zinc-400 hover:text-zinc-200 border border-transparent'
+                  }`}
+                >
+                  {action === 'idle' ? <Pause className="w-2.5 h-2.5" /> : <Play className="w-2.5 h-2.5" />}
+                  <span>{action}</span>
+                </button>
+              );
+            })}
+          </div>
 
-            {/* Stud Reserve & Schedule CTA */}
-            <div className="mt-4 pt-3 border-t border-zinc-800/80 flex items-center justify-between">
-              <div>
-                <span className="text-[10px] uppercase tracking-wider text-zinc-400 block">
-                  Stud Standing
-                </span>
-                <span className="text-xs font-semibold text-amber-300">
-                  {activeHorse.studFee}
-                </span>
-              </div>
-              <button
-                onClick={handleBooking}
-                className="px-3.5 py-2 rounded-xl bg-amber-500/10 border border-amber-500/30 hover:border-amber-500 text-amber-300 text-xs font-medium flex items-center gap-1 hover:bg-amber-500/20 transition-all"
-              >
-                <span>Private Viewing</span>
-                <ChevronRight className="w-3.5 h-3.5" />
-              </button>
-            </div>
-          </motion.div>
-        </AnimatePresence>
+          {/* Toggle Specifications Button */}
+          <button
+            onClick={toggleDrawer}
+            className={`px-3 py-1.5 rounded-full text-xs font-medium tracking-wider flex items-center gap-1.5 transition-all shrink-0 border ${
+              isDrawerOpen
+                ? 'bg-amber-400 text-black border-amber-400'
+                : 'bg-white/5 border-white/10 hover:border-amber-400/50 text-zinc-300 hover:text-white'
+            }`}
+          >
+            <Sliders className="w-3 h-3" />
+            <span className="hidden sm:inline">Specifications</span>
+            <span className="sm:hidden">Specs</span>
+          </button>
+        </div>
       </div>
 
       {/* ========================================================================= */}
-      {/* 2. MOBILE VIEW: BOTTOM SHEET & QUICK DOCK (Visible on < md)               */}
+      {/* SLIDE-OUT SPECIFICATIONS DRAWER (Only visible when requested)            */}
       {/* ========================================================================= */}
-      <div className="md:hidden fixed bottom-0 left-0 w-full z-30 pointer-events-none">
-        {/* Collapsed Mini HUD Dock */}
-        {!isMobileExpanded && (
-          <div className="p-3 pointer-events-auto bg-gradient-to-t from-black via-black/90 to-transparent">
-            <div className="rounded-2xl bg-black/85 backdrop-blur-xl border border-amber-500/30 p-3.5 shadow-2xl flex items-center justify-between">
-              <div>
-                <div className="flex items-center gap-2">
-                  <span className="text-sm font-serif font-bold text-white">
-                    {activeHorse.name}
-                  </span>
-                  <span className="text-[10px] text-amber-400 font-serif">
-                    {activeHorse.arabicName}
-                  </span>
-                </div>
-                <div className="flex items-center gap-2 mt-0.5">
-                  <span className="text-[10px] uppercase font-mono text-zinc-400">
-                    {activeHorse.strain.split(' ')[0]}
-                  </span>
-                  <span className="text-[10px] text-amber-300 font-medium">
-                    • {activeHorse.stats.speed}% Speed
-                  </span>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-2">
-                {/* Quick Gait Cycle Button */}
-                <div className="flex bg-zinc-900/90 rounded-xl p-0.5 border border-zinc-800">
-                  {(['idle', 'trot', 'gallop'] as AnimationState[]).map((action) => (
-                    <button
-                      key={action}
-                      onClick={() => handleAnimationChange(action)}
-                      className={`px-2 py-1 rounded-lg text-[10px] font-medium uppercase ${
-                        currentAnimation === action
-                          ? 'bg-amber-500/30 text-amber-300 border border-amber-500/50'
-                          : 'text-zinc-500'
-                      }`}
-                    >
-                      {action.slice(0, 1).toUpperCase()}
-                    </button>
-                  ))}
-                </div>
-
-                {/* Expand Sheet Button */}
-                <button
-                  onClick={() => {
-                    soundFx.playClick();
-                    setIsMobileExpanded(true);
-                  }}
-                  className="px-2.5 py-1.5 rounded-xl bg-amber-500/20 border border-amber-500/40 text-amber-300 flex items-center gap-1 text-[11px] font-medium"
-                >
-                  <Sliders className="w-3.5 h-3.5" />
-                  <span>Stats</span>
-                  <ChevronUp className="w-3.5 h-3.5" />
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Expanded Full Mobile Drawer */}
-        <AnimatePresence>
-          {isMobileExpanded && (
+      <AnimatePresence>
+        {isDrawerOpen && (
+          <div className="fixed inset-y-0 right-0 z-40 w-full max-w-md pointer-events-none p-4 sm:p-6 flex flex-col justify-end sm:justify-center">
             <motion.div
-              initial={{ y: '100%' }}
-              animate={{ y: 0 }}
-              exit={{ y: '100%' }}
-              transition={{ type: 'spring', damping: 25, stiffness: 220 }}
-              className="pointer-events-auto rounded-t-3xl bg-[#0c0c0e]/95 backdrop-blur-2xl border-t border-x border-amber-500/30 p-5 shadow-[0_-15px_50px_rgba(0,0,0,0.9)] max-h-[82vh] overflow-y-auto"
+              initial={{ opacity: 0, x: 50, scale: 0.96 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              exit={{ opacity: 0, x: 50, scale: 0.96 }}
+              transition={{ duration: 0.25, ease: 'easeOut' }}
+              className="pointer-events-auto w-full rounded-3xl bg-[#0c0c0e]/95 backdrop-blur-2xl border border-amber-500/30 p-6 shadow-[0_20px_70px_rgba(0,0,0,0.9)] text-white relative overflow-hidden"
             >
-              {/* Swipe / Drag Handle Indicator */}
-              <div
-                onClick={() => setIsMobileExpanded(false)}
-                className="w-full flex flex-col items-center justify-center cursor-pointer mb-3"
-              >
-                <div className="w-12 h-1.5 rounded-full bg-zinc-700 hover:bg-amber-400 transition-colors" />
-                <span className="text-[10px] uppercase tracking-widest text-zinc-500 mt-1 flex items-center gap-1">
-                  Tap to minimize <ChevronDown className="w-3 h-3" />
-                </span>
-              </div>
-
-              {/* Title Header */}
+              {/* Header */}
               <div className="flex items-center justify-between pb-3 border-b border-zinc-800">
                 <div>
-                  <span className="text-[10px] tracking-[0.2em] font-serif uppercase text-amber-400">
-                    {activeHorse.strain}
+                  <span className="text-[10px] tracking-[0.25em] font-serif uppercase text-amber-400">
+                    Lineage & Telemetry
                   </span>
-                  <h2 className="text-xl font-serif font-bold text-white">
+                  <h3 className="text-xl font-serif font-bold text-white mt-0.5">
                     {activeHorse.name} ({activeHorse.arabicName})
-                  </h2>
-                  <p className="text-[11px] text-zinc-400 line-clamp-1">
-                    {activeHorse.title}
-                  </p>
+                  </h3>
                 </div>
                 <button
-                  onClick={() => setIsMobileExpanded(false)}
-                  className="p-2 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400"
+                  onClick={toggleDrawer}
+                  className="w-8 h-8 rounded-full bg-zinc-900 border border-zinc-800 hover:border-amber-400 text-zinc-400 hover:text-white flex items-center justify-center transition-all"
                 >
-                  <ChevronDown className="w-4 h-4" />
+                  <X className="w-4 h-4" />
                 </button>
               </div>
 
               {/* Lineage */}
-              <div className="my-3 px-3 py-2 rounded-xl bg-white/[0.03] border border-white/[0.08] text-[11px]">
-                <span className="text-amber-300 font-medium block mb-0.5">Pedigree Lineage</span>
-                <span className="text-zinc-400 leading-tight">{activeHorse.lineage}</span>
-              </div>
+              <p className="text-xs text-zinc-400 font-light mt-3 leading-relaxed">
+                {activeHorse.lineage}
+              </p>
 
-              {/* Stats Bars */}
-              <div className="space-y-2.5 my-3">
+              {/* Telemetry Stats Bars */}
+              <div className="space-y-3 mt-4">
                 <div>
                   <div className="flex justify-between text-xs mb-1">
                     <span className="text-zinc-300 flex items-center gap-1.5">
                       <Zap className="w-3.5 h-3.5 text-amber-400" /> Speed & Burst
                     </span>
-                    <span className="font-mono text-amber-300">{activeHorse.stats.speed}%</span>
+                    <span className="font-mono text-amber-300 font-semibold">{activeHorse.stats.speed}%</span>
                   </div>
                   <div className="h-1.5 bg-zinc-800 rounded-full overflow-hidden">
                     <div
@@ -370,7 +171,7 @@ export function HorseStatsCard() {
                     <span className="text-zinc-300 flex items-center gap-1.5">
                       <Activity className="w-3.5 h-3.5 text-amber-400" /> Stamina
                     </span>
-                    <span className="font-mono text-amber-300">{activeHorse.stats.stamina}%</span>
+                    <span className="font-mono text-amber-300 font-semibold">{activeHorse.stats.stamina}%</span>
                   </div>
                   <div className="h-1.5 bg-zinc-800 rounded-full overflow-hidden">
                     <div
@@ -385,7 +186,7 @@ export function HorseStatsCard() {
                     <span className="text-zinc-300 flex items-center gap-1.5">
                       <Award className="w-3.5 h-3.5 text-amber-400" /> Bloodline Purity
                     </span>
-                    <span className="font-mono text-amber-300">{activeHorse.stats.purity}%</span>
+                    <span className="font-mono text-amber-300 font-semibold">{activeHorse.stats.purity}%</span>
                   </div>
                   <div className="h-1.5 bg-zinc-800 rounded-full overflow-hidden">
                     <div
@@ -398,9 +199,9 @@ export function HorseStatsCard() {
                 <div>
                   <div className="flex justify-between text-xs mb-1">
                     <span className="text-zinc-300 flex items-center gap-1.5">
-                      <Shield className="w-3.5 h-3.5 text-amber-400" /> Temperament
+                      <Shield className="w-3.5 h-3.5 text-amber-400" /> Nobility
                     </span>
-                    <span className="font-mono text-amber-300">{activeHorse.stats.temperament}%</span>
+                    <span className="font-mono text-amber-300 font-semibold">{activeHorse.stats.temperament}%</span>
                   </div>
                   <div className="h-1.5 bg-zinc-800 rounded-full overflow-hidden">
                     <div
@@ -411,43 +212,17 @@ export function HorseStatsCard() {
                 </div>
               </div>
 
-              {/* Mobile Motion Gaits */}
-              <div className="pt-2 border-t border-zinc-800">
-                <span className="text-[10px] tracking-wider uppercase text-zinc-400 font-medium block mb-1.5">
-                  Motion Gaits
-                </span>
-                <div className="grid grid-cols-3 gap-2">
-                  {(['idle', 'trot', 'gallop'] as AnimationState[]).map((action) => {
-                    const isActive = currentAnimation === action;
-                    return (
-                      <button
-                        key={action}
-                        onClick={() => handleAnimationChange(action)}
-                        className={`py-2 rounded-xl text-xs font-medium uppercase tracking-wider flex items-center justify-center gap-1.5 border ${
-                          isActive
-                            ? 'bg-amber-500/25 border-amber-400 text-amber-300'
-                            : 'bg-zinc-900 border-zinc-800 text-zinc-400'
-                        }`}
-                      >
-                        {action === 'idle' ? <Pause className="w-3 h-3" /> : <Play className="w-3 h-3" />}
-                        <span>{action}</span>
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-
-              {/* Mobile Camera Angles */}
-              <div className="mt-3 flex items-center justify-between">
-                <span className="text-[10px] tracking-wider uppercase text-zinc-400 font-medium flex items-center gap-1">
-                  <Camera className="w-3 h-3" /> Camera
+              {/* Camera Presets */}
+              <div className="mt-4 pt-3 border-t border-zinc-800 flex items-center justify-between">
+                <span className="text-[10px] tracking-wider uppercase text-zinc-400 font-mono">
+                  Perspective
                 </span>
                 <div className="flex gap-1.5">
                   {(['full', 'head', 'motion'] as CameraViewPreset[]).map((preset) => (
                     <button
                       key={preset}
                       onClick={() => handleCameraChange(preset)}
-                      className={`px-3 py-1 rounded-lg text-[10px] uppercase font-mono ${
+                      className={`px-2.5 py-1 rounded-lg text-[10px] uppercase font-mono ${
                         cameraPreset === preset
                           ? 'bg-amber-400/20 border border-amber-400/80 text-amber-300'
                           : 'bg-zinc-900 border border-zinc-800 text-zinc-400'
@@ -459,7 +234,7 @@ export function HorseStatsCard() {
                 </div>
               </div>
 
-              {/* Mobile Bottom Booking CTA */}
+              {/* Stud Fee & Booking Action */}
               <div className="mt-4 pt-3 border-t border-zinc-800 flex items-center justify-between gap-3">
                 <div>
                   <span className="text-[9px] uppercase tracking-wider text-zinc-500 block">
@@ -471,19 +246,19 @@ export function HorseStatsCard() {
                 </div>
                 <button
                   onClick={() => {
-                    setIsMobileExpanded(false);
+                    setIsDrawerOpen(false);
                     handleBooking();
                   }}
-                  className="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 text-black font-semibold text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(212,175,55,0.4)] flex items-center justify-center gap-1.5"
+                  className="py-2.5 px-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 text-black font-semibold text-xs tracking-wider uppercase flex items-center gap-1.5 shadow-[0_0_15px_rgba(212,175,55,0.3)]"
                 >
-                  <span>Book Private Viewing</span>
-                  <ChevronRight className="w-4 h-4" />
+                  <span>Book Viewing</span>
+                  <ChevronRight className="w-3.5 h-3.5" />
                 </button>
               </div>
             </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
+          </div>
+        )}
+      </AnimatePresence>
     </>
   );
 }
