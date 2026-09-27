@@ -25,13 +25,16 @@ export function ExperienceSection() {
 
         {/* Dynamic Arched Gallery Layout (Inspired by reference) */}
         <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
-          {/* Left Arched Photo */}
-          <div className="h-72 sm:h-80 rounded-t-full rounded-b-3xl overflow-hidden shadow-lg border-2 border-white">
+          {/* Left Arched Photo: Pure Arabian Head under arena lights */}
+          <div className="h-72 sm:h-80 rounded-t-full rounded-b-3xl overflow-hidden shadow-lg border-2 border-white relative group">
             <img
-              src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=600&auto=format&fit=crop"
-              alt="Equestrian Rider with Horse"
-              className="w-full h-full object-cover"
+              src="/images/horses/horse_white_head.jpg"
+              alt="Mazarayat Al Arabian Champion Head"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end justify-center p-3">
+              <span className="text-[11px] font-mono text-amber-300 font-semibold">Parizaad (پریزاد)</span>
+            </div>
           </div>
 
           {/* Center Info Card */}
@@ -54,13 +57,16 @@ export function ExperienceSection() {
             </button>
           </div>
 
-          {/* Right Arched Photo */}
-          <div className="h-72 sm:h-80 rounded-t-full rounded-b-3xl overflow-hidden shadow-lg border-2 border-white">
+          {/* Right Arched Photo: Real Chestnut Profile */}
+          <div className="h-72 sm:h-80 rounded-t-full rounded-b-3xl overflow-hidden shadow-lg border-2 border-white relative group">
             <img
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600&auto=format&fit=crop"
-              alt="Arabian Master Trainer"
-              className="w-full h-full object-cover"
+              src="/images/horses/horse_chestnut_side.jpg"
+              alt="Mazarayat Al Arabian Lucky"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end justify-center p-3">
+              <span className="text-[11px] font-mono text-amber-300 font-semibold">Lucky (لاكي)</span>
+            </div>
           </div>
         </div>
       </div>

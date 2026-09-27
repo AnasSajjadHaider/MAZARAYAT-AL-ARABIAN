@@ -75,10 +75,10 @@ export function SplitHeroSection() {
                   style={{ animationDuration: '18s', animationDirection: 'reverse' }}
                 />
 
-                {/* Arched Arabian Horse Image / Visual */}
+                {/* Real Arabian Horse Image / Visual: Parizaad */}
                 <img
-                  src="https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=800&auto=format&fit=crop"
-                  alt="Arabian Stallion"
+                  src="/images/horses/horse_white_full.jpg"
+                  alt="Parizaad - Mazarayat Al Arabian"
                   className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
                 />
               </div>
@@ -92,34 +92,40 @@ export function SplitHeroSection() {
                     👑
                   </div>
                   <div className="w-7 h-7 rounded-full border border-amber-400 bg-stone-700 flex items-center justify-center text-[10px] font-bold text-amber-300">
-                    SA
+                    MA
                   </div>
                 </div>
                 <div>
                   <span className="text-xs font-semibold text-white block">Royal Heritage</span>
                   <span className="text-[10px] text-zinc-400 block font-light">
-                    Straight Egyptian Foundation
+                    Mazarayat Al Arabian Bloodlines
                   </span>
                 </div>
               </div>
-              <span className="text-xs font-mono font-bold text-amber-400">40+ Yrs</span>
+              <span className="text-xs font-mono font-bold text-amber-400">4 Champions</span>
             </div>
 
-            {/* Bottom Arched Thumbnail Portraits */}
+            {/* Bottom Arched Thumbnail Portraits: Zulfiqar & Lucky */}
             <div className="relative z-10 mt-4 flex items-center gap-2.5">
-              <div className="flex-1 h-20 rounded-2xl overflow-hidden border border-white/15">
+              <div className="flex-1 h-20 rounded-2xl overflow-hidden border border-white/15 relative group cursor-pointer" onClick={scrollTo3D}>
                 <img
-                  src="https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?q=80&w=400&auto=format&fit=crop"
-                  alt="White Arabian"
-                  className="w-full h-full object-cover"
+                  src="/images/horses/horse_black_night.jpg"
+                  alt="Zulfiqar"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-2">
+                  <span className="text-[10px] font-mono text-amber-300 font-semibold">Zulfiqar (ذوالفقار)</span>
+                </div>
               </div>
-              <div className="flex-1 h-20 rounded-2xl overflow-hidden border border-white/15">
+              <div className="flex-1 h-20 rounded-2xl overflow-hidden border border-white/15 relative group cursor-pointer" onClick={scrollTo3D}>
                 <img
-                  src="https://images.unsplash.com/photo-1598974357801-cbca100e65d3?q=80&w=400&auto=format&fit=crop"
-                  alt="Black Arabian"
-                  className="w-full h-full object-cover"
+                  src="/images/horses/horse_chestnut_front.jpg"
+                  alt="Lucky"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-2">
+                  <span className="text-[10px] font-mono text-amber-300 font-semibold">Lucky (لاكي)</span>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -174,24 +180,24 @@ export function SplitHeroSection() {
               </button>
             </div>
 
-            {/* Circular Portrait with Halter (Inspired by reference right column) */}
+            {/* Circular Portrait with Halter */}
             <div className="pt-4 flex items-center gap-5">
               <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-2 border-[#d4af37] shadow-lg shrink-0">
                 <img
-                  src="https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=300&auto=format&fit=crop"
-                  alt="Arabian Champion Head"
+                  src="/images/horses/horse_golden_stand.jpg"
+                  alt="Sensation - Arabian Champion"
                   className="w-full h-full object-cover"
                 />
               </div>
               <div>
                 <span className="text-[11px] font-mono uppercase tracking-wider text-amber-800 font-bold block">
-                  Featured Champion
+                  Featured Champion Sire
                 </span>
                 <span className="text-base font-serif font-bold text-[#2e261f] block">
-                  Najd Sultan (سلطان نجد)
+                  Sensation (سينسيشن)
                 </span>
                 <p className="text-xs text-[#7d6852] font-light leading-tight mt-0.5">
-                  Direct descendant of Gazal Al Shaqab & Ansata Imperial.
+                  Golden stallion of Mazarayat Al Arabian with pure desert conformation.
                 </p>
               </div>
             </div>

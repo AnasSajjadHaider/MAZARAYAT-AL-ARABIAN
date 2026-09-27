@@ -6,6 +6,7 @@ import { SplitHeroSection } from '@/components/sections/SplitHeroSection';
 import { AnatomyExplorerSection } from '@/components/sections/AnatomyExplorerSection';
 import { DesirableSanctuarySection } from '@/components/sections/DesirableSanctuarySection';
 import { RoyalAttireSection } from '@/components/sections/RoyalAttireSection';
+import { ArenaVideoSection } from '@/components/sections/ArenaVideoSection';
 import { ExperienceSection } from '@/components/sections/ExperienceSection';
 import { BookingModal } from '@/components/ui/BookingModal';
 
@@ -18,16 +19,19 @@ export default function Home() {
       {/* 2. Split Hero Section (Inspired by uploaded reference) */}
       <SplitHeroSection />
 
-      {/* 3. 3D Interactive Anatomy Explorer Centerpiece (With Hotspot Pins) */}
+      {/* 3. 3D Interactive Anatomy Explorer Centerpiece */}
       <AnatomyExplorerSection />
 
       {/* 4. The Most Desirable Sanctuary Bento Band (Dark Topographic) */}
       <DesirableSanctuarySection />
 
-      {/* 5. Handy Guide & Royal Acquisitions (Arched Cards) */}
+      {/* 5. The Four Crown Stallions (Lucky, Sensation, Parizaad, Zulfiqar) */}
       <RoyalAttireSection />
 
-      {/* 6. Experience Private Viewing & Luxury Footer */}
+      {/* 6. Arena Cinema & Motion Reels (2 Championship Videos) */}
+      <ArenaVideoSection />
+
+      {/* 7. Experience Private Viewing & Luxury Footer */}
       <ExperienceSection />
 
       {/* 7. Cal.com & VIP Private Treaty Booking Modal */}

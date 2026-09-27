@@ -27,6 +27,8 @@ export interface HorseData {
   age: string;
   studFee: string;
   description: string;
+  image: string;
+  gallery?: string[];
   cameraPosition: [number, number, number];
   cameraTarget: [number, number, number];
 }
